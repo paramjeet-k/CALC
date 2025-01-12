@@ -228,6 +228,48 @@ if __name__ == "__main__":
 
 
 
+import streamlit as st
+import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.linear_model import LinearRegression
+from sklearn.cluster import KMeans
+
+# Example: Categorizing Expenses
+def categorize_expenses(expenses):
+    categories = ["Food", "Transport", "Entertainment", "Others"]
+    kmeans = KMeans(n_clusters=len(categories), random_state=42)
+    expenses["Category"] = kmeans.fit_predict(expenses[["Amount"]])
+    return expenses
+
+# Example: Generating Insights
+def generate_insights(expenses):
+    insights = []
+    total_spent = expenses["Amount"].sum()
+    for category in expenses["Category"].unique():
+        category_spent = expenses[expenses["Category"] == category]["Amount"].sum()
+        insights.append(f"You spent {category_spent/total_spent:.2%} on {category}.")
+    return insights
+
+# AI-Enhanced Goal Tracker
+def goal_tracker_with_ai():
+    st.title("AI Goal Tracker")
+    
+    goal_name = st.text_input("Enter your financial goal (e.g., Emergency Fund):")
+    goal_amount = st.number_input(f"Total amount for {goal_name} (₹):", min_value=0, step=1000)
+    monthly_contribution = st.number_input("Monthly savings contribution (₹):", min_value=0, step=100)
+    
+    if monthly_contribution > 0:
+        months_needed = goal_amount / monthly_contribution
+        st.write(f"You will achieve your goal in {months_needed:.2f} months.")
+        st.write("### AI Insights")
+        if months_needed > 12:
+            st.warning("Consider increasing your monthly savings to achieve your goal faster!")
+        else:
+            st.success("You're on track to meet your goal!")
+
+
+
+
 
 
 
