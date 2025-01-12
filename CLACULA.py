@@ -73,7 +73,7 @@ def expense_tracker():
 
 # Function for Goal Tracker
 def goal_tracker():
-    st.title("Financial Goal Tracker - Wally Model")
+    st.title("Financial Goal Tracker")
 
     # Inputs for goal tracking
     goal_name = st.text_input("Enter your financial goal (e.g., Emergency Fund):")
