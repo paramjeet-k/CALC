@@ -39,22 +39,22 @@
 
 
 
-# import streamlit as st
+import streamlit as st
 
-# def budget_planner():
-#     st.title("Budget Planner - Cleo Model")
+def budget_planner():
+    st.title("Budget Planner - Cleo Model")
 
-#     food_expense = st.number_input("Enter your food expense (₹):", min_value=0, step=100)
-#     transport_expense = st.number_input("Enter your transport expense (₹):", min_value=0, step=100)
-#     entertainment_expense = st.number_input("Enter your entertainment expense (₹):", min_value=0, step=100)
+    food_expense = st.number_input("Enter your food expense (₹):", min_value=0, step=100)
+    transport_expense = st.number_input("Enter your transport expense (₹):", min_value=0, step=100)
+    entertainment_expense = st.number_input("Enter your entertainment expense (₹):", min_value=0, step=100)
 
-#     total_expenses = food_expense + transport_expense + entertainment_expense
-#     st.write(f"Total Expenses: ₹{total_expenses}")
+    total_expenses = food_expense + transport_expense + entertainment_expense
+    st.write(f"Total Expenses: ₹{total_expenses}")
 
-#     if total_expenses > 5000:
-#         st.warning("Your expenses are high. Consider cutting back on non-essential spending!")
-#     else:
-#         st.success("You're within a reasonable spending limit!")
+    if total_expenses > 5000:
+        st.warning("Your expenses are high. Consider cutting back on non-essential spending!")
+    else:
+        st.success("You're within a reasonable spending limit!")
 
 
 
